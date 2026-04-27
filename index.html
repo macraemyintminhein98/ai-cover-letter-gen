@@ -4,67 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Cover Letter Generator</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✍️</text></svg>">
-    <style>
-        body { font-family: sans-serif; margin: 20px; background-color: #f4f7f6; color: #333; display: flex; flex-direction: column; align-items: center; }
-        h1 { color: #2c3e50; margin-bottom: 5px; }
-        p { max-width: 600px; text-align: center; margin-bottom: 20px; color: #555; }
-        .container { background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 100%; max-width: 700px; }
-        textarea { width: calc(100% - 20px); padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; min-height: 100px; font-size: 1em; }
-        button { background-color: #007bff; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 1.1em; transition: background-color 0.3s ease; }
-        button:hover { background-color: #0056b3; }
-        #result { margin-top: 25px; padding: 15px; background-color: #e9ecef; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; border: 1px dashed #ccc; }
-        .cta-button { background-color: #28a745; margin-top: 20px; }
-        .cta-button:hover { background-color: #218838; }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>AI Cover Letter Generator</h1>
-    <p>Craft perfect cover letters in seconds. Just paste your job description and resume highlights, and our AI will do the rest!</p>
-    <div class="container">
-        <label for="jobDescription">Job Description:</label>
-        <textarea id="jobDescription" placeholder="Paste the job description here..." rows="8"></textarea>
-        
-        <label for="resumeHighlights">Your Key Resume Highlights (5-7 bullet points work best):</label>
-        <textarea id="resumeHighlights" placeholder="e.g., - 5 years project management experience\n- Led cross-functional teams\n- Increased efficiency by 20%..." rows="6"></textarea>
-        
-        <button onclick="generateCoverLetter()">Generate Cover Letter</button>
-        
-        <div id="result">Your personalized cover letter will appear here.</div>
-        
-        <button class="cta-button" onclick="window.location.href='#'">Download & Unlock Full Potential ($9.99)</button>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center mb-6">Generate Your Cover Letter</h1>
+        <form id="coverLetterForm" class="space-y-4">
+            <div>
+                <label for="resumeKeywords" class="block text-sm font-medium text-gray-700">Resume Keywords:</label>
+                <textarea id="resumeKeywords" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+            <div>
+                <label for="jobDescription" class="block text-sm font-medium text-gray-700">Job Description:</label>
+                <textarea id="jobDescription" rows="6" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Generate Letter
+            </button>
+        </form>
+        <div id="result" class="mt-6 p-4 bg-gray-50 border border-gray-200 rounded-md hidden">
+            <h2 class="text-lg font-semibold mb-2">Your Cover Letter:</h2>
+            <p id="coverLetterContent" class="whitespace-pre-wrap text-gray-800"></p>
+        </div>
     </div>
-
     <script>
-        function generateCoverLetter() {
-            const jobDesc = document.getElementById('jobDescription').value;
-            const resumeHighlights = document.getElementById('resumeHighlights').value;
-            const resultDiv = document.getElementById('result');
-            
-            if (!jobDesc || !resumeHighlights) {
-                resultDiv.textContent = "Please provide both job description and resume highlights to generate a cover letter.";
-                return;
-            }
-
-            resultDiv.textContent = "Generating your cover letter... Please wait.";
-            
-            // In a real application, this would be an API call to your backend
-            // For this HTML-only example, we'll simulate a response.
-            setTimeout(() => {
-                const dummyLetter = `Dear Hiring Manager,
-
-I am writing to express my enthusiastic interest in the position, as advertised on [Platform]. With my background in [relevant field/experience from highlights] and a proven track record of [key achievement from highlights], I am confident I possess the skills and dedication to excel in this role.
-
-My experience closely aligns with the requirements of this role, particularly my ability to [another relevant highlight or skill]. I am particularly drawn to [Company Name]'s commitment to [something from job desc, simulate] and believe my [skill/trait] would be a valuable asset to your team.
-
-Thank you for your time and consideration. I look forward to the opportunity to discuss my qualifications further.
-
-Sincerely,
-[Your Name]`;
-
-                resultDiv.textContent = dummyLetter;
-            }, 2000);
-        }
+        // Placeholder for future JavaScript logic:
+        // 1. Form submission to API endpoint
+        // 2. Stripe integration for payment
+        // 3. Display generated cover letter
+        document.getElementById('coverLetterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('This is a demo. Integration with AI and payment gateway would go here!');
+            document.getElementById('result').classList.remove('hidden');
+            document.getElementById('coverLetterContent').innerText = 'Your personalized cover letter will appear here after payment and generation!';
+        });
     </script>
 </body>
 </html>
